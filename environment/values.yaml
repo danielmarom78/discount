@@ -1,5 +1,5 @@
 argoNamespace: openshift-gitops # Namespace managed by argocd
-argoProject: discount # ArgoCD AppProject where apps will be created
+argoProject: default # ArgoCD AppProject where apps will be created
 pvcSize: 50Mi # Small PVC - each service will write a timestamp file for each rollout
 pvcStorageClass: ocs-external-storagecluster-ceph-rbd # RWX storage class for moving files between jobs and services
 
