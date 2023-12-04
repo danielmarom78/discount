@@ -18,7 +18,7 @@ quota:
 # Helm/Git location for the app of apps
 serviceChart:
   chart: service-with-hooks # Chart is a Helm chart name
-  path: ./service # Path is a directory path within the Git repository
+  path: service # Path is a directory path within the Git repository
   repoURL: https://github.com/danielmarom78/discount.git # RepoURL is the URL to the repository (Git or Helm)
   targetRevision: main  # tag / branch / semver
 
