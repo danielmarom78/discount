@@ -53,7 +53,7 @@ spec:
 
         env:
         - name: {{ .Values.jobOutputFileEnvVar }}
-          value: {{ printf "/mnt/job-outputs/%s" $uniqueValue }}
+          value: {{ printf "/mnt/job-outputs/%s-%s" .Release.Name $uniqueValue}}
 
         volumeMounts:
          - name: job-outputs
