@@ -4,7 +4,7 @@ pvcSize: 50Mi # Small PVC - each service will write a timestamp file for each ro
 pvcStorageClass: ocs-storagecluster-cephfs # RWX storage class for moving files between jobs and services
 
 appCount: 3 # number of apps/"services" to deploy
-namespace: test-hooks # destination namespace for the workloads
+namespace: discount # destination namespace for the workloads
 
 # Set quota to see how it breaks when quota exceeds.
 # accepts any key/value that goes into the quota `spec.quota.hard`
