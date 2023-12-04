@@ -1,0 +1,28 @@
+argoNamespace: openshift-gitops # Namespace managed by argocd
+argoProject: CHANGEME # ArgoCD AppProject where apps will be created
+pvcSize: 50Mi # Small PVC - each service will write a timestamp file for each rollout
+pvcStorageClass: ocs-storagecluster-cephfs # RWX storage class for moving files between jobs and services
+
+appCount: 3 # number of apps/"services" to deploy
+namespace: test-hooks # destination namespace for the workloads
+
+# Set quota to see how it breaks when quota exceeds.
+# accepts any key/value that goes into the quota `spec.quota.hard`
+quota:
+  #limits.cpu:
+  #limits.memory: 
+  #requests.cpu:
+  #requests.memory:
+  pods: 7
+
+# Helm/Git location for the app of apps
+serviceChart:
+  chart: # Chart is a Helm chart name
+  path: ./service # Path is a directory path within the Git repository
+  repoURL: # RepoURL is the URL to the repository (Git or Helm)
+  targetRevision: # tag / branch / semver
+
+serviceValues:
+  uniqueValue: TRIGGER-BY-CHANGING
+  job:
+    timeout: 90

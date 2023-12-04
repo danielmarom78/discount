@@ -1,0 +1,35 @@
+{{- range $idx := until (int .Values.appCount) }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ printf "service-%d" $idx }}
+  namespace: {{ $.Values.argoNamespace }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ $.Values.argoProject }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ $.Values.namespace }}
+  source:
+    repoURL: {{ $.Values.serviceChart.repoURL | required "missing value for `serviceChart.repoURL`" }}
+
+    {{- with $.Values.serviceChart.chart }}
+    chart: {{ . }}
+    {{- end }}
+    {{- with $.Values.serviceChart.path }}
+    path: {{ . }}
+    {{- end }}
+    {{- with $.Values.serviceChart.targetRevision }}
+    targetRevision: {{ . }}
+    {{- end }}
+
+    helm:
+      values: | {{ $.Values.serviceValues | default "" | toYaml | nindent 8 }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+{{- end }}
