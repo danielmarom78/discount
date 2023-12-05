@@ -23,6 +23,6 @@ serviceChart:
 serviceValues:
   uniqueValue: TRIGGER-BY-CHANGING-new
   job:
-    timeout: 90
+    timeout: 900
 
 
