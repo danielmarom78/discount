@@ -42,6 +42,6 @@ spec:
       volumes:
         - name: job-outputs
           persistentVolumeClaim:
-            claimName: {{ .Release.Namespace }}
+            claimName: {{ printf "%s-pvc" .Release.Name }}
 
 
