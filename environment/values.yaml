@@ -21,7 +21,7 @@ serviceChart:
   targetRevision: main   # tag / branch / semver
 
 serviceValues:
-  uniqueValue: TRIGGER-BY-CHANGING_new
+  uniqueValue: TRIGGER-BY-CHANGING
   job:
     timeout: 90
 
