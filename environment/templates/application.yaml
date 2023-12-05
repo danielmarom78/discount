@@ -8,7 +8,7 @@ metadata:
   # finalizers:
   # - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: {{ printf "%d" (randNumeric 2) }}
+    argocd.argoproj.io/sync-wave: {{ randNumeric 2 | squote }}
 
 spec:
   project: {{ $.Values.argoProject }}
