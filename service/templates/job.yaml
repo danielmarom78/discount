@@ -18,10 +18,7 @@ spec:
         app: job
     spec:
       restartPolicy: Never
-      volumes:
-      - name: job-outputs
-        persistentVolumeClaim:
-          name: {{ printf "%s-pvc" .Release.Name }}
+
       containers:
       - name: job
         image: {{ .Values.imageName }}
@@ -36,10 +33,15 @@ spec:
 
         env:
         - name: {{ .Values.jobOutputFileEnvVar }}
-          value: {{ printf "/mnt/job-outputs/%s-%s" .Release.Name $uniqueValue }}
+          value: {{ printf "/mnt/job-outputs/%s" $uniqueValue }}
 
         volumeMounts:
-          - name: job-outputs
-            mountPath: /mnt/job-outputs
+         - name: job-outputs
+           mountPath: /mnt/job-outputs
+
+      volumes:
+        - name: job-outputs
+          persistentVolumeClaim:
+            claimName: {{ .Release.Namespace }}
 
 
