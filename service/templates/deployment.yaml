@@ -5,6 +5,8 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   revisionHistoryLimit: 0
 
   selector:
