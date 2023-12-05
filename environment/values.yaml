@@ -24,3 +24,6 @@ serviceValues:
   uniqueValue: TRIGGER-BY-CHANGING_new
   job:
     timeout: 90
+
+pvcSize: 50Mi # Small PVC - each service will write a timestamp file for each rollout
+pvcStorageClass: ocs-external-storagecluster-ceph-rbd # RWX storage class for moving files between jobs and services
