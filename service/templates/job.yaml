@@ -40,8 +40,8 @@ spec:
            mountPath: /mnt/job-outputs
 
       volumes:
-        - name: job-outputs
-          persistentVolumeClaim:
-            claimName: {{ printf "%s-pvc" .Release.Name }}
+      - name: job-outputs
+        persistentVolumeClaim:
+          claimName: {{ printf "%s-pvc" .Release.Name }}
 
 
