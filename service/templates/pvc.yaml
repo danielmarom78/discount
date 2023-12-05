@@ -6,8 +6,8 @@ metadata:
   name: {{ printf "%s-pvc" .Release.Name }}
   namespace: {{ .Values.namespace }}
 spec:
-  278391
-  
+  accessModes:
+  - ReadWriteOnce  
   resources:
     requests:
       storage: {{ .Values.pvcSize }}
