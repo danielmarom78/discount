@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-wave: '50'
   name: {{ .Release.Name }}
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 0
 
   selector:
