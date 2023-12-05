@@ -10,7 +10,7 @@ service:
   resources: {}
 
 job:
-  command: [/bin/bash, -c, 'sleep 30; date > $JOB_OUTPUT']
+  command: [/bin/bash, -c, 'date > $JOB_OUTPUT']
   resources: {}
   retries: 0
   timeout: 900
