@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    # argocd.argoproj.io/sync-wave: '50'
+    argocd.argoproj.io/sync-wave: '50'
   name: {{ .Release.Name }}
 spec:
   replicas: 1
@@ -55,11 +55,11 @@ spec:
         - name: {{ .Values.jobOutputFileEnvVar }}
           value: {{ printf "/mnt/job-outputs/%s-%s" .Release.Name $uniqueValue}}
 
-        volumeDevices:
+        volumeMounts:
         - name: job-outputs
-          devicePath: /mnt/job-outputs
+          mountPath: /mnt/job-outputs
 
       volumes:
       - name: job-outputs
         persistentVolumeClaim:
-          claimName: {{ .Release.Namespace }}
+          name: {{ printf "%s-pvc" .Release.Name }}
