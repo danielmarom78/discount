@@ -10,4 +10,4 @@ spec:
     requests:
       storage: {{ .Values.pvcSize }}
   storageClassName: {{ .Values.pvcStorageClass }}
-  volumeMode: Block
+  volumeMode: Filesystem
