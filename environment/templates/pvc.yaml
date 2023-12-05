@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ printf "%s-pvc" .Release.Name }}
+  name: {{ printf "%s-pvc" .Values.namespace }}
   namespace: {{ .Values.namespace }}
 spec:
   accessModes:
