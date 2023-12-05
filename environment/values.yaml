@@ -1,7 +1,7 @@
 argoNamespace: openshift-gitops # Namespace managed by argocd
 argoProject: default # ArgoCD AppProject where apps will be created
 
-appCount: 300 # number of apps/"services" to deploy
+appCount: 0 # number of apps/"services" to deploy
 namespace: discount # destination namespace for the workloads
 
 # Set quota to see how it breaks when quota exceeds.
