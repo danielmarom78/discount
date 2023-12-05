@@ -2,6 +2,9 @@ imageName: registry.access.redhat.com/ubi8/ubi-minimal:latest
 jobOutputFileEnvVar: JOB_OUTPUT
 uniqueValue: hello world
 
+pvcSize: 50Mi # Small PVC - each service will write a timestamp file for each rollout
+pvcStorageClass: ocs-external-storagecluster-ceph-rbd # RWX storage class for moving files between jobs and services
+
 service:
   initCommand: [/bin/bash, -c, 'for n in $(seq 5); do [ -f $JOB_OUTPUT ] && exit 0 || sleep 10 ]; done ; exit 1']
   mainCommandArgs: [sleep, infinity]
