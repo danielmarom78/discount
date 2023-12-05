@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   labels:
     quota/id: {{ .Values.namespace }}
-    app.kubernetes.io/managed-by: {{ .Values.argoNamespace }}
+    argocd.argoproj.io/managed-by: {{ .Values.argoNamespace }}
   name: {{ .Values.namespace }}
