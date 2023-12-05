@@ -15,9 +15,9 @@ spec:
   source:
     repoURL: {{ $.Values.serviceChart.repoURL | required "missing value for `serviceChart.repoURL`" }}
 
-    {{- with $.Values.serviceChart.chart }}
-    chart: {{ . }}
-    {{- end }}
+    # {{- with $.Values.serviceChart.chart }}
+    # chart: {{ . }}
+    # {{- end }}
     {{- with $.Values.serviceChart.path }}
     path: {{ . }}
     {{- end }}
