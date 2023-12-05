@@ -60,6 +60,6 @@ spec:
           devicePath: /mnt/job-outputs
 
       volumes:
-        - name: job-outputs
-          persistentVolumeClaim:
-            claimName: {{ .Release.Namespace }}
+      - name: job-outputs
+        persistentVolumeClaim:
+          claimName: {{ .Release.Namespace }}
