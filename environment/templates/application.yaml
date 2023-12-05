@@ -5,8 +5,11 @@ kind: Application
 metadata:
   name: {{ printf "service-%d" $idx }}
   namespace: {{ $.Values.argoNamespace }}
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
+  # finalizers:
+  # - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: {{ printf "%d" (randNumeric 2) }}
+
 spec:
   project: {{ $.Values.argoProject }}
   destination:
