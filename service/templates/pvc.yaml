@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '10'
-  name: {{ .Release.Namespace }}
+  name: name: {{ printf "%s-pvc" .Release.Name }}
   namespace: {{ .Values.namespace }}
 spec:
   accessModes:
