@@ -16,4 +16,4 @@ job:
   timeout: 900
 
 pvcSize: 50Mi # Small PVC - each service will write a timestamp file for each rollout
-pvcStorageClass: gp3-csi # RWX storage class for moving files between jobs and services
+pvcStorageClass: managed-nfs-storage # RWX storage class for moving files between jobs and services
