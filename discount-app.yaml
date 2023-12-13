@@ -10,7 +10,7 @@ spec:
   source:
     path: environment
     repoURL: 'https://github.com/danielmarom78/discount.git'
-    targetRevision: HEAD
+    targetRevision: daniel
   sources: []
   project: default
   syncPolicy:
